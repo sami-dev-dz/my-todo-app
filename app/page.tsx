@@ -24,7 +24,7 @@ export default function Home() {
   const inProgressItems = useMemo(() => todos.filter((t) => t.state === "in progress"), [todos]);
   const doneItems = useMemo(() => todos.filter((t) => t.state === "done"), [todos]);
 
-  if (!isLoaded) return null; 
+  if (!isLoaded) return null;
   return (
     <main className="min-h-screen bg-neutral-50 flex flex-col items-center py-12 px-4">
       <div className="w-full max-w-6xl flex flex-col gap-y-12">

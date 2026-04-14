@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, SubmitEvent } from "react";
 import { Todo } from "@/types/todo";
 
 type Props = {
@@ -10,15 +10,15 @@ type Props = {
 function Form({ updateTodos }: Props) {
   const [todo, setToDo] = useState("");
 
-  function handleToDoAdd(e: FormEvent<HTMLFormElement>) {
+  function handleToDoAdd(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!todo.trim()) return;
 
     const localTodos = localStorage.getItem("todos");
     const todos: Todo[] = localTodos ? JSON.parse(localTodos) : [];
-    
+
     const newTodo: Todo = {
-      id: Date.now(), 
+      id: Date.now(),
       title: todo.trim(),
       state: "todo",
     };
